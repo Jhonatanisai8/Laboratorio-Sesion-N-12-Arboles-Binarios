@@ -69,4 +69,15 @@ public class ArbolCliente {
         }
         return auxiliar;
     }
+
+    //método para eliminar el mayor izquierda
+    public NodoCliente eliminarMayorIzquierda(NodoCliente auxiliar) {
+        if (auxiliar != null) {
+            return null;
+        } else if (auxiliar.getDere() != null) {
+            auxiliar.setDere(eliminarMayorIzquierda(auxiliar.getDere()));
+            return auxiliar;
+        }
+        return auxiliar.getIzq();
+    }
 }

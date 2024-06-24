@@ -1,19 +1,20 @@
 package org.JhonatanIsai.Control;
 
+import javax.swing.table.DefaultTableModel;
 import org.JhonatanIsai.Modelo.Cliente;
 
 public class ArbolCliente {
-
+    
     private NodoCliente raiz;
-
+    
     public ArbolCliente() {
         raiz = null;
     }
-
+    
     public NodoCliente getRaiz() {
         return raiz;
     }
-
+    
     public void setRaiz(NodoCliente raiz) {
         this.raiz = raiz;
     }
@@ -48,5 +49,14 @@ public class ArbolCliente {
             }
         }
         return null;
+    }
+
+    //método para listar en inOrden
+    public void listarInOrden(NodoCliente nodoCliente, DefaultTableModel modelo) {
+        if (nodoCliente != null) {
+            listarInOrden(nodoCliente.getIzq(), modelo);
+            modelo.addRow(nodoCliente.getElemento().getRegistro());
+            listarInOrden(nodoCliente.getDere(), modelo);
+        }
     }
 }

@@ -25,4 +25,16 @@ public class NodoCliente {
         return dere;
     }
 
+    public void setElemento(Cliente elemento) {
+        this.elemento = elemento;
+    }
+
+    public void setIzq(NodoCliente izq) {
+        this.izq = izq;
+    }
+
+    public void setDere(NodoCliente dere) {
+        this.dere = dere;
+    }
+
 }

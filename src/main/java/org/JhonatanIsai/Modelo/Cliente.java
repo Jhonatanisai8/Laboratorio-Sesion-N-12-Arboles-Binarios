@@ -21,6 +21,18 @@ public class Cliente {
         return apellidos + " " + nombres;
     }
 
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
+    }
+
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
     public String getApellidos() {
         return apellidos;
     }

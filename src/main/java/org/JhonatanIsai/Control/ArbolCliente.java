@@ -32,4 +32,21 @@ public class ArbolCliente {
         }
         return nodoCliente;
     }
+
+    //método para buscar un cliente
+    public NodoCliente buscarCliente(String dato) {
+        NodoCliente auxiliar = raiz;
+        while (auxiliar != null) {
+            if (auxiliar.getElemento().getNombreCompleto().startsWith(dato)) {
+                return auxiliar;
+            } else {
+                if (dato.compareTo(auxiliar.getElemento().getNombreCompleto()) > 0) {
+                    auxiliar = auxiliar.getDere();
+                } else {
+                    auxiliar = auxiliar.getIzq();
+                }
+            }
+        }
+        return null;
+    }
 }

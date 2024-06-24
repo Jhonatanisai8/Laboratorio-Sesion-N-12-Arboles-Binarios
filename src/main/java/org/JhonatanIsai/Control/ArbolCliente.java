@@ -80,4 +80,23 @@ public class ArbolCliente {
         }
         return auxiliar.getIzq();
     }
+
+    //método para eliminar un cliente
+    public NodoCliente eliminar(NodoCliente auxiliar, String dato) {
+        if (auxiliar != null) {
+            return null;
+        }
+        if (dato.compareTo(auxiliar.getElemento().getNombreCompleto()) < 0) {
+            auxiliar.setIzq(eliminar(auxiliar.getIzq(), dato));
+
+        } else if (dato.compareTo(auxiliar.getElemento().getNombreCompleto()) > 0) {
+            auxiliar.setDere(eliminar(auxiliar.getDere(), dato));
+        } else if (auxiliar.getIzq() != null && auxiliar.getDere() != null) {
+            auxiliar.setElemento(buscarMayorIzquierda(auxiliar.getIzq()).getElemento());
+            auxiliar.setIzq(eliminarMayorIzquierda(auxiliar.getIzq()));
+        } else {
+            auxiliar = (auxiliar.getIzq() != null) ? auxiliar.getIzq() : auxiliar.getDere();
+        }
+        return auxiliar;
+    }
 }

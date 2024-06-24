@@ -4,17 +4,17 @@ import javax.swing.table.DefaultTableModel;
 import org.JhonatanIsai.Modelo.Cliente;
 
 public class ArbolCliente {
-    
+
     private NodoCliente raiz;
-    
+
     public ArbolCliente() {
         raiz = null;
     }
-    
+
     public NodoCliente getRaiz() {
         return raiz;
     }
-    
+
     public void setRaiz(NodoCliente raiz) {
         this.raiz = raiz;
     }
@@ -58,5 +58,15 @@ public class ArbolCliente {
             modelo.addRow(nodoCliente.getElemento().getRegistro());
             listarInOrden(nodoCliente.getDere(), modelo);
         }
+    }
+
+    //método para buscar el mayor izquierda
+    public NodoCliente buscarMayorIzquierda(NodoCliente auxiliar) {
+        if (auxiliar != null) {
+            while (auxiliar.getDere() != null) {
+                auxiliar = auxiliar.getDere();
+            }
+        }
+        return auxiliar;
     }
 }

@@ -31,8 +31,8 @@ public class frmVista extends javax.swing.JFrame {
         txtNombres.setEnabled(estado);
         txtTelefono.setEnabled(estado);
         btnNuevo.setEnabled(!estado);
-        btnAgregar.setEnabled(!estado);
-        btnCancelar.setEnabled(!estado);
+        btnAgregar.setEnabled(estado);
+        btnCancelar.setEnabled(estado);
         btnBuscar.setEnabled(!estado);
         btnELiminar.setEnabled(!estado);
         btnSalir.setEnabled(!estado);

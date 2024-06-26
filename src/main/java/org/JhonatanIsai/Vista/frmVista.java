@@ -138,6 +138,11 @@ public class frmVista extends javax.swing.JFrame {
 
         btnSalir.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -257,13 +262,17 @@ public class frmVista extends javax.swing.JFrame {
     private void btnELiminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnELiminarActionPerformed
         int fila = tblDatos.getSelectedRow();
         if (fila != -1) {
-            String cadena = modTabla.getValueAt(fila, 0)+ " "+
-                    modTabla.getValueAt(fila, 1);
+            String cadena = modTabla.getValueAt(fila, 0) + " "
+                    + modTabla.getValueAt(fila, 1);
             objArbol.setRaiz(objArbol.eliminar(objArbol.getRaiz(), cadena));
             limpiarTabla();
             objArbol.listarInOrden(objArbol.getRaiz(), modTabla);
         }
     }//GEN-LAST:event_btnELiminarActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     public static void main(String args[]) {
 

@@ -113,6 +113,11 @@ public class frmVista extends javax.swing.JFrame {
 
         btnCancelar.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         btnBuscar.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         btnBuscar.setText("Buscar");
@@ -222,6 +227,11 @@ public class frmVista extends javax.swing.JFrame {
         limpiarControles();
         estadoControles(false);
     }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        limpiarControles();
+        estadoControles(false);
+    }//GEN-LAST:event_btnCancelarActionPerformed
     
     public static void main(String args[]) {
         

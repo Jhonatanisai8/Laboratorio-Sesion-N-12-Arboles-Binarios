@@ -3,6 +3,7 @@ package org.JhonatanIsai.Vista;
 import javax.swing.table.DefaultTableModel;
 import org.JhonatanIsai.Control.ArbolCliente;
 import org.JhonatanIsai.Control.NodoCliente;
+import org.JhonatanIsai.Modelo.Cliente;
 
 public class frmVista extends javax.swing.JFrame {
 
@@ -10,18 +11,21 @@ public class frmVista extends javax.swing.JFrame {
     ArbolCliente objArbol = new ArbolCliente();
     DefaultTableModel modTabla;
     int operacion;
-
+    
     public frmVista() {
         initComponents();
+        setLocationRelativeTo(null);
+        estadoControles(false);
+        modTabla = (DefaultTableModel) tblDatos.getModel();
     }
-
+    
     private void limpiarControles() {
         txtApellidos.setText("");
         txtNombres.setText("");
         txtTelefono.setText("");
         txtNombres.requestFocus();;
     }
-
+    
     private final void estadoControles(boolean estado) {
         txtApellidos.setEnabled(estado);
         txtNombres.setEnabled(estado);
@@ -35,20 +39,19 @@ public class frmVista extends javax.swing.JFrame {
         btnSalir.setEnabled(!estado);
         tblDatos.setEnabled(!estado);
     }
-
+    
     private void limpiarTabla() {
         modTabla.setRowCount(0);
     }
-
+    
     private void cargarDatos(NodoCliente auxiliar) {
         if (auxiliar != null) {
             txtApellidos.setText(auxiliar.getElemento().getApellidos());
             txtNombres.setText(auxiliar.getElemento().getNombres());
             txtTelefono.setText(auxiliar.getElemento().getTelefono());
-
+            
         }
     }
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -102,6 +105,11 @@ public class frmVista extends javax.swing.JFrame {
 
         btnAgregar.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         btnAgregar.setText("Agregar");
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
 
         btnCancelar.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         btnCancelar.setText("Cancelar");
@@ -202,8 +210,21 @@ public class frmVista extends javax.swing.JFrame {
         limpiarControles();
     }//GEN-LAST:event_btnNuevoActionPerformed
 
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        Object[] registro = {txtApellidos.getText(),
+            txtNombres.getText(),
+            txtTelefono.getText()};
+        Cliente cliente = new Cliente(registro);
+        objArbol.setRaiz(objArbol.agregarCliente(objArbol.getRaiz(), cliente));;
+        
+        limpiarTabla();
+        objArbol.listarInOrden(objArbol.getRaiz(), modTabla);
+        limpiarControles();
+        estadoControles(false);
+    }//GEN-LAST:event_btnAgregarActionPerformed
+    
     public static void main(String args[]) {
-
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frmVista().setVisible(true);

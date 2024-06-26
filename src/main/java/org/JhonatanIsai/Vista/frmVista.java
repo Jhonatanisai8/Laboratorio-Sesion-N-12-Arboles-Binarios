@@ -130,6 +130,11 @@ public class frmVista extends javax.swing.JFrame {
 
         btnELiminar.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         btnELiminar.setText("Eliminar");
+        btnELiminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnELiminarActionPerformed(evt);
+            }
+        });
 
         btnSalir.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         btnSalir.setText("Salir");
@@ -248,6 +253,17 @@ public class frmVista extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "El dato buscado no existe", "Atención", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnELiminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnELiminarActionPerformed
+        int fila = tblDatos.getSelectedRow();
+        if (fila != -1) {
+            String cadena = modTabla.getValueAt(fila, 0)+ " "+
+                    modTabla.getValueAt(fila, 1);
+            objArbol.setRaiz(objArbol.eliminar(objArbol.getRaiz(), cadena));
+            limpiarTabla();
+            objArbol.listarInOrden(objArbol.getRaiz(), modTabla);
+        }
+    }//GEN-LAST:event_btnELiminarActionPerformed
 
     public static void main(String args[]) {
 

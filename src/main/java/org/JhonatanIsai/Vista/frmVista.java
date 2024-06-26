@@ -2,6 +2,7 @@ package org.JhonatanIsai.Vista;
 
 import javax.swing.table.DefaultTableModel;
 import org.JhonatanIsai.Control.ArbolCliente;
+import org.JhonatanIsai.Control.NodoCliente;
 
 public class frmVista extends javax.swing.JFrame {
 
@@ -9,18 +10,18 @@ public class frmVista extends javax.swing.JFrame {
     ArbolCliente objArbol = new ArbolCliente();
     DefaultTableModel modTabla;
     int operacion;
-    
+
     public frmVista() {
         initComponents();
     }
-    
+
     private void limpiarControles() {
         txtApellidos.setText("");
         txtNombres.setText("");
         txtTelefono.setText("");
         txtNombres.requestFocus();;
     }
-    
+
     private final void estadoControles(boolean estado) {
         txtApellidos.setEnabled(estado);
         txtNombres.setEnabled(estado);
@@ -34,9 +35,18 @@ public class frmVista extends javax.swing.JFrame {
         btnSalir.setEnabled(!estado);
         tblDatos.setEnabled(!estado);
     }
-    
+
     private void limpiarTabla() {
         modTabla.setRowCount(0);
+    }
+
+    private void cargarDatos(NodoCliente auxiliar) {
+        if (auxiliar != null) {
+            txtApellidos.setText(auxiliar.getElemento().getApellidos());
+            txtNombres.setText(auxiliar.getElemento().getNombres());
+            txtTelefono.setText(auxiliar.getElemento().getTelefono());
+
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -182,7 +192,7 @@ public class frmVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public static void main(String args[]) {
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frmVista().setVisible(true);

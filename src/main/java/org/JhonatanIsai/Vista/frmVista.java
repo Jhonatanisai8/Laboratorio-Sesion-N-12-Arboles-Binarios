@@ -49,6 +49,7 @@ public class frmVista extends javax.swing.JFrame {
         }
     }
 
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -93,6 +94,11 @@ public class frmVista extends javax.swing.JFrame {
 
         btnNuevo.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         btnNuevo.setText("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
 
         btnAgregar.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         btnAgregar.setText("Agregar");
@@ -190,6 +196,11 @@ public class frmVista extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        estadoControles(true);
+        limpiarControles();
+    }//GEN-LAST:event_btnNuevoActionPerformed
 
     public static void main(String args[]) {
 

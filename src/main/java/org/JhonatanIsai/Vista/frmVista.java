@@ -9,18 +9,18 @@ public class frmVista extends javax.swing.JFrame {
     ArbolCliente objArbol = new ArbolCliente();
     DefaultTableModel modTabla;
     int operacion;
-
+    
     public frmVista() {
         initComponents();
     }
-
+    
     private void limpiarControles() {
         txtApellidos.setText("");
         txtNombres.setText("");
         txtTelefono.setText("");
         txtNombres.requestFocus();;
     }
-
+    
     private final void estadoControles(boolean estado) {
         txtApellidos.setEnabled(estado);
         txtNombres.setEnabled(estado);
@@ -33,6 +33,10 @@ public class frmVista extends javax.swing.JFrame {
         btnSalir.setEnabled(!estado);
         btnSalir.setEnabled(!estado);
         tblDatos.setEnabled(!estado);
+    }
+    
+    private void limpiarTabla() {
+        modTabla.setRowCount(0);
     }
 
     @SuppressWarnings("unchecked")
@@ -178,7 +182,7 @@ public class frmVista extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public static void main(String args[]) {
-
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frmVista().setVisible(true);

@@ -21,13 +21,27 @@ public class frmVista extends javax.swing.JFrame {
         txtNombres.requestFocus();;
     }
 
+    private final void estadoControles(boolean estado) {
+        txtApellidos.setEnabled(estado);
+        txtNombres.setEnabled(estado);
+        txtTelefono.setEnabled(estado);
+        btnNuevo.setEnabled(!estado);
+        btnAgregar.setEnabled(!estado);
+        btnCancelar.setEnabled(!estado);
+        btnBuscar.setEnabled(!estado);
+        btnELiminar.setEnabled(!estado);
+        btnSalir.setEnabled(!estado);
+        btnSalir.setEnabled(!estado);
+        tblDatos.setEnabled(!estado);
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        btlDatos = new javax.swing.JTable();
+        tblDatos = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         txtApellidos = new javax.swing.JTextField();
         txtNombres = new javax.swing.JTextField();
@@ -43,8 +57,8 @@ public class frmVista extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        btlDatos.setFont(new java.awt.Font("SimHei", 0, 17)); // NOI18N
-        btlDatos.setModel(new javax.swing.table.DefaultTableModel(
+        tblDatos.setFont(new java.awt.Font("SimHei", 0, 17)); // NOI18N
+        tblDatos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -52,7 +66,7 @@ public class frmVista extends javax.swing.JFrame {
                 "Apellidos", "Nombres", "Teléfono"
             }
         ));
-        jScrollPane1.setViewportView(btlDatos);
+        jScrollPane1.setViewportView(tblDatos);
 
         jLabel1.setFont(new java.awt.Font("SimHei", 1, 17)); // NOI18N
         jLabel1.setText("Apellidos:");
@@ -173,7 +187,6 @@ public class frmVista extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable btlDatos;
     private javax.swing.JButton btnAgregar;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCancelar;
@@ -185,6 +198,7 @@ public class frmVista extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblDatos;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtNombres;
     private javax.swing.JTextField txtTelefono;

@@ -1,5 +1,6 @@
 package org.JhonatanIsai.Vista;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.JhonatanIsai.Control.ArbolCliente;
 import org.JhonatanIsai.Control.NodoCliente;
@@ -11,21 +12,21 @@ public class frmVista extends javax.swing.JFrame {
     ArbolCliente objArbol = new ArbolCliente();
     DefaultTableModel modTabla;
     int operacion;
-    
+
     public frmVista() {
         initComponents();
         setLocationRelativeTo(null);
         estadoControles(false);
         modTabla = (DefaultTableModel) tblDatos.getModel();
     }
-    
+
     private void limpiarControles() {
         txtApellidos.setText("");
         txtNombres.setText("");
         txtTelefono.setText("");
         txtNombres.requestFocus();;
     }
-    
+
     private final void estadoControles(boolean estado) {
         txtApellidos.setEnabled(estado);
         txtNombres.setEnabled(estado);
@@ -39,20 +40,20 @@ public class frmVista extends javax.swing.JFrame {
         btnSalir.setEnabled(!estado);
         tblDatos.setEnabled(!estado);
     }
-    
+
     private void limpiarTabla() {
         modTabla.setRowCount(0);
     }
-    
+
     private void cargarDatos(NodoCliente auxiliar) {
         if (auxiliar != null) {
             txtApellidos.setText(auxiliar.getElemento().getApellidos());
             txtNombres.setText(auxiliar.getElemento().getNombres());
             txtTelefono.setText(auxiliar.getElemento().getTelefono());
-            
+
         }
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -121,6 +122,11 @@ public class frmVista extends javax.swing.JFrame {
 
         btnBuscar.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         btnELiminar.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
         btnELiminar.setText("Eliminar");
@@ -221,7 +227,7 @@ public class frmVista extends javax.swing.JFrame {
             txtTelefono.getText()};
         Cliente cliente = new Cliente(registro);
         objArbol.setRaiz(objArbol.agregarCliente(objArbol.getRaiz(), cliente));;
-        
+
         limpiarTabla();
         objArbol.listarInOrden(objArbol.getRaiz(), modTabla);
         limpiarControles();
@@ -232,9 +238,19 @@ public class frmVista extends javax.swing.JFrame {
         limpiarControles();
         estadoControles(false);
     }//GEN-LAST:event_btnCancelarActionPerformed
-    
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        String cadena = JOptionPane.showInputDialog(null, "Nombre a buscar: ", "Atención", JOptionPane.INFORMATION_MESSAGE);
+        NodoCliente auxiliar = objArbol.buscarCliente(cadena);
+        if (auxiliar != null) {
+            cargarDatos(auxiliar);
+        } else {
+            JOptionPane.showMessageDialog(null, "El dato buscado no existe", "Atención", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
     public static void main(String args[]) {
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new frmVista().setVisible(true);

@@ -1,5 +1,6 @@
 package org.JhonatanIsai.Vista;
 
+import com.formdev.flatlaf.intellijthemes.materialthemeuilite.FlatMaterialLighterIJTheme;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.JhonatanIsai.Control.ArbolCliente;
@@ -18,13 +19,14 @@ public class frmVista extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         estadoControles(false);
         modTabla = (DefaultTableModel) tblDatos.getModel();
+        FlatMaterialLighterIJTheme.setup();
     }
 
     private void limpiarControles() {
         txtApellidos.setText("");
         txtNombres.setText("");
         txtTelefono.setText("");
-        txtNombres.requestFocus();;
+        txtApellidos.requestFocus();;
     }
 
     private final void estadoControles(boolean estado) {
@@ -89,13 +91,20 @@ public class frmVista extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("SimHei", 1, 17)); // NOI18N
         jLabel1.setText("Apellidos:");
 
+        txtApellidos.setFont(new java.awt.Font("Segoe UI Black", 0, 17)); // NOI18N
+
+        txtNombres.setFont(new java.awt.Font("Segoe UI Black", 0, 17)); // NOI18N
+
         jLabel2.setFont(new java.awt.Font("SimHei", 1, 17)); // NOI18N
         jLabel2.setText("Nombres:");
+
+        txtTelefono.setFont(new java.awt.Font("Segoe UI Black", 0, 17)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("SimHei", 1, 17)); // NOI18N
         jLabel3.setText("Teléfono:");
 
         btnNuevo.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        btnNuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/agregar-usuario (1).png"))); // NOI18N
         btnNuevo.setText("Nuevo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -104,6 +113,7 @@ public class frmVista extends javax.swing.JFrame {
         });
 
         btnAgregar.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/agregar-usuario (1).png"))); // NOI18N
         btnAgregar.setText("Agregar");
         btnAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,6 +122,7 @@ public class frmVista extends javax.swing.JFrame {
         });
 
         btnCancelar.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        btnCancelar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/hombre.png"))); // NOI18N
         btnCancelar.setText("Cancelar");
         btnCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,6 +131,7 @@ public class frmVista extends javax.swing.JFrame {
         });
 
         btnBuscar.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/buscar (1).png"))); // NOI18N
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -128,6 +140,7 @@ public class frmVista extends javax.swing.JFrame {
         });
 
         btnELiminar.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        btnELiminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/hombre.png"))); // NOI18N
         btnELiminar.setText("Eliminar");
         btnELiminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -136,6 +149,7 @@ public class frmVista extends javax.swing.JFrame {
         });
 
         btnSalir.setFont(new java.awt.Font("Consolas", 1, 18)); // NOI18N
+        btnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/cerrar-sesion.png"))); // NOI18N
         btnSalir.setText("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

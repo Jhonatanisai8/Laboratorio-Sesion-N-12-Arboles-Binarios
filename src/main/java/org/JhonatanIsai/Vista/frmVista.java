@@ -50,7 +50,6 @@ public class frmVista extends javax.swing.JFrame {
             txtApellidos.setText(auxiliar.getElemento().getApellidos());
             txtNombres.setText(auxiliar.getElemento().getNombres());
             txtTelefono.setText(auxiliar.getElemento().getTelefono());
-
         }
     }
 

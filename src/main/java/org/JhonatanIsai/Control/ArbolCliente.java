@@ -83,7 +83,7 @@ public class ArbolCliente {
 
     //método para eliminar un cliente
     public NodoCliente eliminar(NodoCliente auxiliar, String dato) {
-        if (auxiliar != null) {
+        if (auxiliar == null) {
             return null;
         }
         if (dato.compareTo(auxiliar.getElemento().getNombreCompleto()) < 0) {

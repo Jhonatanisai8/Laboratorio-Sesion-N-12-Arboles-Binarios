@@ -13,7 +13,7 @@ public class Cliente {
     }
 
     public Object[] getRegistro() {
-        Object[] registro = {apellidos, nombres, telefono};
+        Object[] registro = { apellidos, nombres, telefono };
         return registro;
     }
 
